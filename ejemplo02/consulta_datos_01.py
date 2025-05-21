@@ -14,25 +14,34 @@ from configuracion import cadena_base_datos
 # sqlite
 engine = create_engine(cadena_base_datos)
 
-
 Session = sessionmaker(bind=engine)
 session = Session()
 
 # Obtener todos los registros de
 # la entidad estudiante (clase Estudiante)
-
+# 
 # estudiantes = session.query(Estudiante).all()
-# print(estudiantes)
 
+#print(estudiantes)
+# for e in estudiantes:
+# print(e.id, e.nombre)
 # print("--------------------------------------")
 # Obtener todos los registros de la clase Modulo
 # modulos = session.query(Modulo).all()
 # print(modulos)
-
-# print("--------------------------------------")
+print("--------------------------------------")
 # Obtener todos los registros de la clase Matricula
-# matriculas = session.query(Matricula).all()
+matriculas = session.query(Matricula).all()
 
 # nombre y apellido del estudiante de cada matrícula
 
-# print(matriculas)
+#print(matriculas)
+#  en esta consulta se obtiene el nombre y apellido
+#  del estudiante de cada matrícula
+#  se hace uso de un for para recorrer la lista de
+#  matrículas y se accede a los atributos de la
+#  matrícula y del estudiante
+#  de la matrícula
+for e in matriculas:
+    print("Estudiante: %s - %s" % (e.estudiante.nombre, e.estudiante.apellido))
+    print("--------------------------------------")

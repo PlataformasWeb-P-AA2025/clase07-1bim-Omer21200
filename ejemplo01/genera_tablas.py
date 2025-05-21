@@ -22,7 +22,7 @@ class Club(Base):
     __tablename__ = 'club'
     id = Column(Integer, primary_key=True)
     nombre = Column(String(100))
-    deporte = Column(String(100))
+    deporte = Column(String(100)) 
     fundacion = Column(Integer, nullable=False)
     # Mapea la relación entre las clases
     # Club puede acceder a los jugadores asociados
